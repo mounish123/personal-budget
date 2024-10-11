@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Budget</title>
     <meta name="description" content="track and manage your budget for FREE">
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
 <header>
@@ -138,12 +138,12 @@
 
     }
     function getBudget(){
-        axios.get('http://localhost:3000/budget')
+        axios.get('http://localhost:4000/budget')
         .then(function (res){
             console.log(res.data);
-            for(var i = 0 ; i < res.data.myBudget.length; i++ ){
-                dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                dataSource.labels[i] = res.data.myBudget[i].title;
+            for(var i = 0 ; i < res.data.length; i++ ){
+                dataSource.datasets[0].data[i] = res.data[i].budget;
+                dataSource.labels[i] = res.data[i].title;
             }
             createChart();
         }); 
@@ -231,7 +231,7 @@ svg.append('text') // Append directly to the svg container
 }
 
 function getBarChartData() {
-    axios.get('http://localhost:3000/bar-chart-data')
+    axios.get('http://localhost:4000/bar-chart-data')
         .then(function (res) {
             console.log(res.data);
             createBarChart(res.data);
@@ -243,6 +243,7 @@ function getBarChartData() {
 
 // Initialize charts
 getBarChartData();
+
 
 
 </script>

@@ -38,7 +38,9 @@ header .menu ul li a {
     margin: 0;
 }
 
-header .menu ul li padding: 0 40pxa:hover  {
+header .menu ul li {padding: 0 40pxa}
+
+header .menu:hover  {
     background-color: white;
     color: #4d5791;
 }
